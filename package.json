@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@jpmorganchase/perspective": "^0.2.12",
-    "@jpmorganchase/perspective-viewer": "^0.2.12",
+    "@jpmorganchase/perspective": "^0.2.23",
+    "@jpmorganchase/perspective-viewer": "^0.2.23",
     "@jpmorganchase/perspective-viewer-highcharts": "^0.2.12",
     "@types/jest": "^23.3.13",
     "@types/node": "^10.12.19",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.0.11",
-    "bootstrap": "^4.2.1",
+    "bootstrap": "^4.3.1",
     "puppeteer": "^1.19.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -20,7 +20,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "firstkiss": "run-p begin:**",
+    "begin": "which python | (read py; sed -i '' '1s;^;'#!\"$py\"/\r';' test.py)",
+    "begin:start": "python start.py",
+    "begin:start-devserver": "npm run start",
+    "gogo": "run-p begin:start**",
+    "makefpatch": "git format-patch -$NUM --stdout > patch-2019-11-10.patch"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -33,6 +39,7 @@
   ],
   "devDependencies": {
     "awesome-typescript-loader": "^5.2.1",
+    "npm-run-all": "^4.1.5",
     "source-map-loader": "^0.2.4",
     "typescript": "^3.2.4"
   }

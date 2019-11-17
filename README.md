@@ -1,3 +1,59 @@
+# Setup
+
+## mac instructions
+
+- **Create a repos**
+  - git clone the repo from the [github](https://github.com/insidesherpa/JPMC-tech-task-3-PY3.git)
+  - from terminal, change directory into the repos
+  - type `basename ${PWD} | pbcopy`
+    - that puts the folder name into the clipboard
+  - Use that folder name and create a repo
+- **Install Dependencies**
+  - type `npm install`
+  - type `npm audit fix`
+- Make sure python installed pyenv is installed.
+  - make sure you have pyenv-virtualenv installed too.
+    - brew installing it is the best
+    - if you want manual, read it cuz it's funky.
+  - type `pyenv activate <insert-your-python-env>`
+    - if you dont have a python env
+      - `pyenv virtualenv <python-version> <name>`
+      - type 'pyenv virtualenvs` to see a list of your virtualenvs
+  - to leave the virtualenv, type `pyenv deactivate`
+  - make sure datetuil is pip installed
+    - `pip install python-dateutil`
+- **Compile scripts**
+  - `npm run firstkiss`
+    - this creates the scripts necessary for python to run successfully on either linux or mac systems. It basically appends the correct path to python onto our python script. This is a run only once command.
+    - this will start the server AND the devserver.
+- **ACTUAL DEVELOPMENT BEGINS HERE**
+  - `npm run gogo`
+    - you'll be running this from now on. this starts the server and devserver
+- **On Completion**
+  - `NUM=1 npm run makefpatch`
+    - creates a patch based on the number of commits (1) to the nearest unpatched commit
+
+## Setup Summary
+
+Previously, the start script required my personal path location, this way, the firstkiss or firstlaunch script will append the local python environment and there's less of a fuss.
+
+Basically, run the firstkiss script, then on all subsequent development run the gogo script
+
+---
+
+## Ticket
+
+### Purpose
+
+You will use perspective to generate a live graph that displays the data feed in a clear and visually appealing way for traders to monitor this trading strategy.
+
+- the purpose of this graph is to monitor and determine when a trading opportunity may arise as a result of the temporary weakening of a correlation between two stock prices.
+- Given this graph, the trader should be able to quickly and easily notice when the ratio moves too far from the average historical correlation. In the first instance, we'll assume that threshold is +/-10% of the 12 month historical average ratio.
+
+### Acceptance Criteria
+
+- Ratio between the two stock prices is tracked and displayed. The upper and lower bounds must be shown on the graph too. And finally, alerts are shown whenever these bounds are crossed by the ratio.
+
 <p align="center">
 <a href="https://www.insidesherpa.com/virtual-internships/prototype/R5iK7HMxJGBgaSbvk/Technology%20Virtual%20Experience" target="_blank">
 <img src="https://insidesherpa-assets.s3-ap-southeast-2.amazonaws.com/icons/jpmorgan/github+repo+images/jpm+gitub+.png"></a>
@@ -19,7 +75,7 @@
 Display data visually for traders.
 Use Perspective to create the chart for the trader’s dashboard.
 
-<b>Aim:</b> Use Perspective to generate a chart that displays the data feed in a clear and visually appealing manner for traders to monitor this trading strategy. Basically, you have to modify the existing live chart to be able to (1) track and display the ratio between the two stock prices (2) show the historical upper and lower bounds of the stocks' ratio (3) and finally, show 'alerts'  whenever these bounds are crossed by the ratio.
+<b>Aim:</b> Use Perspective to generate a chart that displays the data feed in a clear and visually appealing manner for traders to monitor this trading strategy. Basically, you have to modify the existing live chart to be able to (1) track and display the ratio between the two stock prices (2) show the historical upper and lower bounds of the stocks' ratio (3) and finally, show 'alerts' whenever these bounds are crossed by the ratio.
 
 <ol>
 	<li>Please clone this repository to start the task</li>
@@ -42,9 +98,9 @@ Use Perspective to create the chart for the trader’s dashboard.
 
 <code>python datafeed/server3.py</code>
 
-If you encounter an issue with `datautil.parser`, run this command: 
+If you encounter an issue with `datautil.parser`, run this command:
 
-	pip install python-dateutil
+    pip install python-dateutil
 
 If you don't have pip, you can install it from: https://pip.pypa.io/en/stable/installing/
 
